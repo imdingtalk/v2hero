@@ -11,5 +11,5 @@ before_install:
   - sudo apt-get install snap -y
   - sudo snap install  heroku
   - heroku container:login
-  - heroku container:push web
+  - heroku container:push web -a $HEROKU_APPNAME
   - heroku container:release web -a $HEROKU_APPNAME
