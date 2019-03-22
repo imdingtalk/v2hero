@@ -8,7 +8,8 @@ before_install:
   #- docker build -t registry.heroku.com/"$HEROKU_APPNAME"/web .
   - docker login -u "$HEROKU_EMAIL" -p "$HEROKU_APIKEY" registry.heroku.com
  # - docker push registry.heroku.com/"$HEROKU_APPNAME"/web
+  - sudo apt-get install snap -y
   - sudo snap install --classic heroku
   - heroku container:login
   - heroku container:push web
-  - heroku container:release web
+  - heroku container:release web -a $HEROKU_APPNAME
