@@ -6,9 +6,9 @@ services:
  
 before_install:
   #- docker build -t registry.heroku.com/"$HEROKU_APPNAME"/web .
-  - docker login -u "$HEROKU_EMAIL" -p "$HEROKU_APIKEY" registry.heroku.com
- # - docker push registry.heroku.com/"$HEROKU_APPNAME"/web
+  #- docker login -u "$HEROKU_EMAIL" -p "$HEROKU_APIKEY" registry.heroku.com
+  #- docker push registry.heroku.com/"$HEROKU_APPNAME"/web
   - curl https://cli-assets.heroku.com/install.sh | sh
-  - heroku container:login
+  - heroku container:login -i
   - heroku container:push web -a $HEROKU_APPNAME
   - heroku container:release web -a $HEROKU_APPNAME
