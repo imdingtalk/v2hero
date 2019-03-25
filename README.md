@@ -1,3 +1,7 @@
+**2019.3.25  项目fork自onplus/v2hero，原项目较长时间未更新，Dockerfile文件因为v2ray的目录结构更改导致不可用，此处我根据新的目录结构更新的Dockerfile,可以直接fork使用**
+
+# 以下为原作README
+
 # v2hero  [![Build Status](https://travis-ci.org/onplus/v2hero.svg?branch=core-3.1)](https://travis-ci.org/onplus/v2hero)
 本项目是一个利用Travis-CI部署Docker到Heroku 的学习示例。
 
