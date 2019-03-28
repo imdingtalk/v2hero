@@ -5,6 +5,20 @@ services:
   - docker
  
 before_install:
-  - docker build -t registry.heroku.com/"$HEROKU_APPNAME"/web .
-  - docker login -u "$HEROKU_EMAIL" -p "$HEROKU_APIKEY" registry.heroku.com
-  - docker push registry.heroku.com/"$HEROKU_APPNAME"/web
+  #- docker build -t registry.heroku.com/"$HEROKU_APPNAME"/web .
+  #- docker login -u "$HEROKU_EMAIL" -p "$HEROKU_APIKEY" registry.heroku.com
+  #- docker push registry.heroku.com/"$HEROKU_APPNAME"/web
+  #安装heroku-cli
+  - curl https://cli-assets.heroku.com/install.sh | sh
+  # 添加heroku授权信息
+  - echo "machine api.heroku.com" >> ~/.netrc
+  - echo "  login $HEROKU_EMAIL"  >> ~/.netrc
+  - echo "  password $HEROKU_TOKEN" >> ~/.netrc
+  - echo "machine git.heroku.com" >> ~/.netrc
+  - echo "  login $HEROKU_EMAIL"  >> ~/.netrc
+  - echo "  password $HEROKU_TOKEN" >> ~/.netrc
+install:
+  - heroku container:login
+  - heroku container:push web
+  - heroku container:release web -a $HEROKU_APPNAME
+  
