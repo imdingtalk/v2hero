@@ -19,6 +19,6 @@ before_install:
   - echo "  password $HEROKU_TOKEN" >> ~/.netrc
 install:
   - heroku container:login
-  - heroku container:push web
+  - heroku container:push web -a $HEROKU_APPNAME
   - heroku container:release web -a $HEROKU_APPNAME
   
