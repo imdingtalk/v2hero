@@ -13,14 +13,14 @@ RUN apk add --no-cache --virtual .build-deps ca-certificates curl \
  && chmod -R g+rwX /v2raybin 
  
 ADD entrypoint.sh /entrypoint.sh
-
+ADD nonci4entrypoint.sh /nonci4entrypoint.sh
 RUN chmod +x /entrypoint.sh 
 
 #ENTRYPOINT /entrypoint.sh
 #单独使用请注释下面一行
-CMD /entrypoint.sh
+#CMD /entrypoint.sh
 #使用ci工具请注释下面一行
-#CMD /nonci4entrypoint.sh
+CMD /nonci4entrypoint.sh
 
 
 
