@@ -17,8 +17,10 @@ ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh 
 
 #ENTRYPOINT /entrypoint.sh
-
+#单独使用请注释下面一行
 CMD /entrypoint.sh
+#使用ci工具请注释下面一行
+#CMD /non4entrypoint.sh
 
 
 
