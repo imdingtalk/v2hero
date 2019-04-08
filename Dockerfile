@@ -17,6 +17,6 @@ RUN chmod +x /entrypoint.sh
 CMD /entrypoint.sh
 #cicd使用时注释下面四行
 #ADD nonci4entrypoint.sh /nonci4entrypoint.sh
-#ADD config.json  /v2ray
+#ADD config.json  /v2raybin
 #RUN chmod +x /nonci4entrypoint.sh
 #CMD /nonci4entrypoint.sh
