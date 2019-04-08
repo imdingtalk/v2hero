@@ -11,16 +11,15 @@ RUN apk add --no-cache --virtual .build-deps ca-certificates curl \
  && rm -rf v2ray.zip \
  && chgrp -R 0 /v2raybin \
  && chmod -R g+rwX /v2raybin 
- 
+#单独使用注释下面三行 
 ADD entrypoint.sh /entrypoint.sh
-ADD nonci4entrypoint.sh /nonci4entrypoint.sh
-RUN chmod +x /entrypoint.sh 
-RUN chmod +x /nonci4entrypoint.sh
-#ENTRYPOINT /entrypoint.sh
-#单独使用请注释下面一行
-#CMD /entrypoint.sh
-#使用ci工具请注释下面一行
-CMD /nonci4entrypoint.sh
+RUN chmod +x /entrypoint.sh
+CMD /entrypoint.sh
+#cicd使用时注释下面四行
+#ADD nonci4entrypoint.sh /nonci4entrypoint.sh
+#ADD config.json  /v2ray
+#RUN chmod +x /nonci4entrypoint.sh
+#CMD /nonci4entrypoint.sh
 
 
 
