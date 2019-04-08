@@ -20,6 +20,3 @@ CMD /entrypoint.sh
 #ADD config.json  /v2ray
 #RUN chmod +x /nonci4entrypoint.sh
 #CMD /nonci4entrypoint.sh
-
-
-
